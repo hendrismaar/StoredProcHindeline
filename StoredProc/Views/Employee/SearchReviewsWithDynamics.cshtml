@@ -1,0 +1,54 @@
+﻿<body style="padding-top: 10px">
+    <div class="col-xs-8 col-xs-offset-2">
+        <div class="panel-heading">
+            <h3>Review Search Form</h3>
+        </div>
+        <form asp-controller="Employee" asp-action="SearchReviewsWithDynamics">
+            <div>
+                <label for="title">Title</label>
+                <br />
+                <input type="text" name="title" placeholder="Title" />
+            </div>
+            <br />
+            <div>
+                <label for="description">Description</label>
+                <br />
+                <input type="text" name="description" placeholder="Description" />
+            </div>
+            <br />
+            <div>
+                <label for="author">Author</label>
+                <br />
+                <input type="text" name="author" placeholder="Author" />
+            </div>
+            <br />
+            <div>
+                <label for="rating">Rating</label>
+                <br />
+                <input type="number" name="rating" placeholder="Rating" />
+            </div>
+            <br />
+            <input type="submit" value="SearchReviewsWithDynamics" />
+        </form>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Rating</th>
+                </tr>
+            <tbody>
+                @foreach (var review in Model)
+                {
+                    <tr>
+                        <td>@review.Title</td>
+                        <td>@review.Description</td>
+                        <td>@review.Author</td>
+                        <td>@review.Rating</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
